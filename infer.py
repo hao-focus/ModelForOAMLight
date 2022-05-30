@@ -42,18 +42,13 @@ def bar_show(img, x):
     plt.bar(x, img_np, color='green')
     plt.show()
 # load the data
-root = r'E:\dl_project\D2NN_OAM_Spectrum\GithubRepo\Dataset\ExpDataset\test_MulMode'
-# root = r'E:\dl_project\D2NN_OAM_Spectrum\GithubRepo\Dataset\ExpDataset\test_MulMode'
-# root = r'E:\dl_project\D2NN_OAM_Spectrum\GithubRepo\Dataset\ExpDataset\test_MulMode'
-# root = r'E:\dl_project\D2NN_OAM_Spectrum\GithubRepo\Dataset\ExpDataset\test_MulMode'
-# root = r'E:\dl_project\D2NN_OAM_Spectrum\GithubRepo\Dataset\ExpDataset\test_MulMode'
-# root = r'E:\dl_project\D2NN_OAM_Spectrum\GithubRepo\Dataset\ExpDataset\test_MulMode'
+root = r'' # the absolute root of test set
 transform = transforms.Compose([transforms.ToTensor])
 test_dataset = bl.TrainDataset(root, transform=transform)
-data_test = DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=False)
+data_test = DataLoader(dataset=test_dataset, batch_size=batch_size, shuffle=True)
 model = HybridNetwork.Net(num_layers=num_layers)
 criterion = torch.nn.SmoothL1Loss(reduction='sum')
-checkpoint = torch.load(path_best[0], map_location='cpu')  # or path_best
+checkpoint = torch.load(path_best[0], map_location='cpu')
 model.load_state_dict(checkpoint['Model_state_dict'])
 model.cuda()
 model.eval()
