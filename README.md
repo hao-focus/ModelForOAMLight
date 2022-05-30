@@ -5,7 +5,7 @@ To dig out more details, please refer to xxx.
 
 If you find this repo helpful for your research, please also cite xxx.
 
-To start with, please download this package and install PyTorch.
+To start with, please download this package and install PyTorch (recommend PyTorch 1.10.0 with Python 3.7 and CUDA 11.5.0 environment).
 
 HybridNetwork.py is the constructed model.
 
