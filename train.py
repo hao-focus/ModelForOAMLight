@@ -48,8 +48,8 @@ path_train = [path_train1, path_train2, path_train3]
 model_temp = "Models/" + model_name + "/temp_model1.pth"
 path_temp = os.path.abspath(model_temp)
 # load data
-root1 = r'C:\DataSim\train'
-root2 = r'C:\DataSim\val'
+root1 = r'C:\train'
+root2 = r'C:\val'
 transform = transforms.Compose([transforms.ToTensor, transforms.RandomRotation((0, 360))])
 train_dataset = bl.TrainDataset(root1, transform=transform)
 data_train = DataLoader(dataset=train_dataset, batch_size=batch_size, shuffle=True)
@@ -76,9 +76,9 @@ for epoch in range(num_epochs):
     start0 = time.time()
     running_loss = 0.0
     for i, (train_input, train_labels) in enumerate(data_train, 1):
-        train_input = train_input.cuda()  # b h w
+        train_input = train_input.cuda()
         train_input = torch.squeeze(train_input)
-        train_labels = train_labels.cuda()  # b 81 1
+        train_labels = train_labels.cuda()
         train_labels = torch.squeeze(train_labels).float()
         optimizer.zero_grad()
         eff_train = model(train_input)
@@ -105,7 +105,6 @@ for epoch in range(num_epochs):
             print('[{}, {}] train_loss = {:.5f} val_loss = {:.5f}'.format(epoch + 1, i, training_loss, validation_loss))
             writer.add_scalar('train_loss', training_loss, iters)
             writer.add_scalar('val_loss', validation_loss, iters)
-
             if validation_loss < min_loss:
                 print('saving a lowest loss model: best_model')
                 min_loss = validation_loss
