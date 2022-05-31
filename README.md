@@ -1,9 +1,9 @@
 # ModelForOAMLight
 This Repo contributes to measure OAM spectrum of structured light via hybrid optoelectronic neural networks. Detecting OAM spectrum is a crucial ingredient for almost all aspects of its related applications. This proposed method settles this pivotal task in an accurate, fast, robust, concise and single-shot manner. It can be an optimal solution to OAM measurement problem compared with previous endeavors, openning substantial OAM-based fundamental discoveries as well as applications such as high-speed communications.
 
-To dig out more details, please refer to xxx.
+To dig out more details, please refer to http://arxiv.org/abs/2205.15045.
 
-If you find this repo helpful for your research, please also cite xxx.
+If you find this repo helpful for your research, please also cite this paper (http://arxiv.org/abs/2205.15045).
 
 To start with, please download this package and install PyTorch (recommend PyTorch 1.10.0 with Python 3.7 and CUDA 11.5.0 environment).
 
